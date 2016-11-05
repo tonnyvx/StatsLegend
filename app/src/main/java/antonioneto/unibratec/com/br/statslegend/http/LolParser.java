@@ -39,7 +39,7 @@ public class LolParser {
 
             Champion champ;
 
-            while (keys.hasNext()) {
+                while (keys.hasNext()) {
                 String key = keys.next();
                 JSONObject personagem = data.getJSONObject(key);
                 String title = personagem.getString("title");

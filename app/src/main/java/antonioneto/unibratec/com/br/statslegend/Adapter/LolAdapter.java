@@ -29,7 +29,7 @@ public class LolAdapter extends ArrayAdapter<Champion>{
         super(context,0,champions);
 
     }
-
+public static final String URL_IMAGE ="http://ddragon.leagueoflegends.com/cdn/6.22.1/img/champion/%s.png";
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 Champion champ = getItem(position);
@@ -40,13 +40,13 @@ Champion champ = getItem(position);
         TextView championName= (TextView) convertView.findViewById(R.id.championName);
         TextView championTitle = (TextView) convertView.findViewById(R.id.championTitle);
         TextView championClass = (TextView) convertView.findViewById(R.id.championClass);
-       /* ImageView championImage = (ImageView) convertView.findViewById(R.id.championImage);*/
+        ImageView championImage = (ImageView) convertView.findViewById(R.id.championImage);
         championName.setText(champ.name);
         championTitle.setText(champ.title);
         championClass.setText(champ.tags);
-       /* Picasso.with(getContext()).load("http://ddragon.leagueoflegends.com/cdn/6.22.1/img/champion/Akali.png")
+         Picasso.with(getContext()).load(String.format(URL_IMAGE,champ.name.toString()))
                 .resize(50,50)
-                .into(championImage);*/
+                .into(championImage);
         return convertView;
 }
 }
